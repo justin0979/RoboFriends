@@ -23,9 +23,13 @@ class App extends React.Component {
         <Header />
         <SearchBox onChange={this.props.handleChange} />
         <Scroll>
-          <ErrorBoundary>
-            <CardList robots={filteredRobots} />
-          </ErrorBoundary>
+          {this.props.isPending ? (
+            <h1>Loading</h1>
+          ) : (
+            <ErrorBoundary>
+              <CardList robots={filteredRobots} />
+            </ErrorBoundary>
+          )}
         </Scroll>
       </div>
     );
