@@ -5,6 +5,9 @@ import MainPage from '../components/MainPage';
 import './App.scss';
 
 class App extends React.Component {
+  componentDidMount() {
+    console.log(process.env.REACT_APP_SAY_HI);
+  }
   render() {
     return <MainPage {...this.props} />;
   }

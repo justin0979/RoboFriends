@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  bob:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "A first Hello"
+  sal:
+    docker:
+      - image: circleci/ruby:2.4.1
+    steps:
+      - checkout
+      - run: echo "Double trouble"
+    workflows:
+      version: 2
+      bob_sal:
+        jobs:
+          - bob
+          - sal
